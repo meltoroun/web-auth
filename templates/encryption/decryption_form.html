@@ -1,11 +1,9 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}{% endblock %}</title>
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <title>Decryption Form</title>
     <style>
-     body {
+         body {
             background-color: #f2f2f2;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -56,13 +54,19 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
-</style>
+    </style>
 </head>
+
 <body>
-</div>
-<div id="content">
-    {% block content %}
-    {% endblock %}
-</div>
+    <h1>Расшифровка</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'decrypt_file' %}">
+        {% csrf_token %}
+        <label for="myfile">Пни сюда этот файл наконец-то:</label>
+        <input type="file" id="myfile" name="myfile" required><br><br>
+
+        <label for="key">Enter the decryption key:</label>
+        <input type="text" id="key" name="key" required><br><br>
+        <input type="submit" value="Decrypt">
+    </form>
 </body>
 </html>

@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
-  <h2>Регистрация</h2>
+</head>
+<body>
+<h2>Регистрация</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Отправить</button>
   </form>
-</head>
-<body>
-
 </body>
 </html>

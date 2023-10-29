@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Логин</title>
+    <style>
+        H1 { text-align: center }
+        P.blocktext {
+            margin-left: auto;
+            margin-right: auto;
+            width: 20em
+        }
+    </style>
 </head>
+
 <body>
 {% extends "base.html" %}
 {% block title %}Log-in{% endblock %}
 {% block content %}
-    <h1>Вход</h1>
-    <p>Введите логин/пароль:</p>
+    <h1 pos>Вход в эту невероятную систему</h1>
+    <p class="blocktext">Введите логин и пароль...  пожалуйста</p>
     <form action="." method="post">
         {{ form.as_p }}
         {% csrf_token %}
         <p><input type="submit" value="Войти"></p>
+        <button type="button"><a href="user/registration/">Регистрация</a></button>
     </form>
-<a href="user/registration/">Регистрация</a>
-{% endblock %}
 
+<br>
+<a href="/encrypt/">Инструмент зашифровки</a>
+<br>
+<a href="decrypt/">Инструмент расшифровки</a>
+{% endblock %}
 </body>
 </html>
