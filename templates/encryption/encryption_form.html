@@ -57,7 +57,7 @@
         }
 </style>
 <body>
-    <h1>Зашифровка</h1>
+    <h2> <a href="/add-ticket/">Назад</a> / Зашифровка </h2>
     <form method="post" enctype="multipart/form-data" action="{% url 'encrypt_file' %}">
         {% csrf_token %}
         <label for="myfile">Укажите файл:</label>

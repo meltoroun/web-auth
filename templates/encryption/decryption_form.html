@@ -56,12 +56,11 @@
         }
     </style>
 </head>
-
 <body>
-    <h1>Расшифровка</h1>
+    <h2><a href="/add-ticket/">Назад</a> / Расшифровка</h2>
     <form method="post" enctype="multipart/form-data" action="{% url 'decrypt_file' %}">
         {% csrf_token %}
-        <label for="myfile">Пни сюда этот файл наконец-то:</label>
+        <label for="myfile">Укажите файл:</label>
         <input type="file" id="myfile" name="myfile" required><br><br>
 
         <label for="key">Ключ:</label>
