@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from encryption.utils import encrypt, decrypt
-
+import os
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 import io
@@ -25,13 +26,18 @@ def encrypt_file(request):
                     else:
                         encrypted_text += char
 
-        with open(myfile.name + '.cry', 'wt', encoding='utf-8') as encrypted_file:
+        encrypted_file_path = os.path.join(myfile.name + '.cry')
+
+        with open(encrypted_file_path, 'wt', encoding='utf-8') as encrypted_file:
             encrypted_file.write(encrypted_text)
 
-        return render(request, 'encryption/encryption_success.html', {
-            'encrypted_file': encrypted_file
-        })
+        with open(encrypted_file_path, 'rb') as file:
+            response = HttpResponse(file.read(), content_type='text/plain')
+            response['Content-Disposition'] = f'attachment; filename="{myfile.name}.cry"'
+            return response
+
     return render(request, 'encryption/encryption_form.html')
+
 
 
 def decrypt_file(request):
@@ -52,10 +58,14 @@ def decrypt_file(request):
                     else:
                         decrypted_text += char
 
-        with open(myfile.name.split('.')[0] + '.txt', 'wt', encoding='utf-8') as decrypted_file:
+        decrypted_file_path = os.path.join(myfile.name.split('.')[0] + '.txt')
+
+        with open(decrypted_file_path, 'wt', encoding='utf-8') as decrypted_file:
             decrypted_file.write(decrypted_text)
 
-        return render(request, 'encryption/decryption_success.html', {
-            'decrypted_file': decrypted_file
-        })
+        with open(decrypted_file_path, 'rb') as file:
+            response = HttpResponse(file.read(), content_type='text/plain')
+            response['Content-Disposition'] = f'attachment; filename="{myfile.name.split(".")[0]}.txt"'
+            return response
+
     return render(request, 'encryption/decryption_form.html')
