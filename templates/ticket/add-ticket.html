@@ -1,3 +1,6 @@
+<style>
+
+</style>
 <h2><a href="/">Выход</a> / Создать тикет:</h2>
 {% extends 'base.html' %}
 {% block content %}
@@ -8,7 +11,12 @@
     </form>
 <h2>Использовать инструменты Шифрования для файлов</h2>
 <br>
-<a href="/encrypt/">Инструмент зашифровки</a>
+<a href="/encrypt/">Инструмент зашифровки - Метод Цезаря</a>
 <br>
-<a href="/decrypt/">Инструмент расшифровки</a>
+<a href="/decrypt/">Инструмент расшифровки - Метод Цезаря</a>
+<br>
+<a href="/encdes/">DES</a>
+<h2>Стеганография</h2>
+<br>
+<a href="/encrypt/">Кодирование текста</a>
 {% endblock content %}
