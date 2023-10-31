@@ -1,11 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from encryption.utils import encrypt, decrypt
+import io
 import os
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.core.files.storage import FileSystemStorage
-import io
+
 
 ALPHABET_POWER = 26
 

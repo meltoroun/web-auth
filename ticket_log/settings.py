@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ticket',
     'encryption',
-    'encryptionDES'
+    'encryptionDES',
+    'shorthand'
 ]
 
 MIDDLEWARE = [

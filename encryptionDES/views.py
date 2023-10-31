@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from Crypto.Cipher import DES
 import pyDes
 import base64
 

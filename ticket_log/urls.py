@@ -23,5 +23,6 @@ urlpatterns = [
     path("", include('index.urls')),
     path("", include('ticket.urls')),
     path("", include('encryption.urls')),
-    path("", include('encryptionDES.urls'))
+    path("", include('encryptionDES.urls')),
+    path("", include('shorthand.urls'))
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
